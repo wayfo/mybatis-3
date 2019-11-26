@@ -22,6 +22,11 @@ public class BadSubject {
   private final Height height;
   private final Double weight;
 
+  /**
+   * @Description height 属性和查询结果类型不匹配
+   * @Author yangsj
+   * @Date 2019/11/25 19:37
+   **/
   public BadSubject(final int id, final String name, final int age, final Height height, final Double weight) {
     this.id = id;
     this.name = name;

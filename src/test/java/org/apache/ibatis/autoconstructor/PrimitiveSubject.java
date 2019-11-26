@@ -26,6 +26,12 @@ public class PrimitiveSubject {
   private final boolean active;
   private final Date dt;
 
+
+  /**
+   * @Description 该实体的构造方法无法接收 NULL 值的查询结果
+   * @Author yangsj
+   * @Date 2019/11/25 19:36
+   **/
   public PrimitiveSubject(final int id, final String name, final int age, final int height, final int weight, final boolean active, final Date dt) {
     this.id = id;
     this.name = name;

@@ -43,7 +43,9 @@ public class XNode {
     this.node = node;
     this.name = node.getNodeName();
     this.variables = variables;
+    //标签属性值
     this.attributes = parseAttributes(node);
+    //解析标签体内容
     this.body = parseBody(node);
   }
 
@@ -287,6 +289,12 @@ public class XNode {
     }
   }
 
+
+  /**
+   * @Description  获取节点的子节点（ 类型为ELEMENT_NODE）
+   * @Author yangsj
+   * @Date 2019/11/26 10:57
+   **/
   public List<XNode> getChildren() {
     List<XNode> children = new ArrayList<>();
     NodeList nodeList = node.getChildNodes();
@@ -301,12 +309,20 @@ public class XNode {
     return children;
   }
 
+  /**
+   * 解析子标签
+   *
+   * @return properties
+   */
   public Properties getChildrenAsProperties() {
     Properties properties = new Properties();
-    for (XNode child : getChildren()) {
+    //遍历子节点
+    for (XNode child : getChildren()) {//getChildren 获取 子节点
+      //获取子节点的 name 和 value 值
       String name = child.getStringAttribute("name");
       String value = child.getStringAttribute("value");
       if (name != null && value != null) {
+        //封装成 key - value 形式返回
         properties.setProperty(name, value);
       }
     }
